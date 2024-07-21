@@ -18,7 +18,7 @@ export class CaraService extends BaseResponse {
         try {
             const tambah = await this.caraServis.save({...payload})
 
-            return this.sukses("Berhasil Menambahkan Tips", this.req.user.user_id)
+            return this.sukses("Berhasil Menambahkan Tips", tambah)
         } catch (error) {
             throw new HttpException("Gagal Menambahkan Tips Pembayaran", HttpStatus.UNPROCESSABLE_ENTITY)
         }
@@ -53,6 +53,6 @@ export class CaraService extends BaseResponse {
 
         const update = await this.caraServis.save({...payload, id: id})
 
-        return this.sukses("Berhasil Memperbarui Tips", this.req.user.user_id)
+        return this.sukses("Berhasil Memperbarui Tips", update)
     }
 }

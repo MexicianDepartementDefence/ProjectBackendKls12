@@ -6,12 +6,15 @@ export class BeritaDto {
     id: number;
 
     @IsString()
+    gambar: string;
+
+    @IsString()
     judul: string;
 
     @IsString()
     isi_berita: string;
 }
 
-export class TambahBerita extends PickType(BeritaDto, ["judul","isi_berita"]) {}
+export class TambahBerita extends PickType(BeritaDto, ["judul","isi_berita", "gambar"]) {}
 
-export class UpdateBerita extends PickType(BeritaDto, ["judul", "isi_berita"]) {}
+export class UpdateBerita extends PickType(BeritaDto, ["judul", "isi_berita", "gambar"]) {}

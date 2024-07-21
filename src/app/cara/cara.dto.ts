@@ -14,14 +14,6 @@ export class caraDto {
     @ValidateNested({each: true})
     @Type(() => DtoDetail)
     detail : DtoDetail[]
-
-    @IsObject()
-    @IsOptional()
-    dibuat_oleh: {id: number}
-
-    @IsObject()
-    @IsOptional()
-    diperbarui_oleh: {id: number}
 }
 
 export class TambahCara extends OmitType (caraDto, ["id"]) {}

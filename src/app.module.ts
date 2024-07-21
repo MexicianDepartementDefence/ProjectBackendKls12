@@ -7,9 +7,10 @@ import { AkunModule } from './app/akun/akun.module';
 import { CaraModule } from './app/cara/cara.module';
 import { BeritaModule } from './app/berita/berita.module';
 import { DetailcaraModule } from './app/detailcara/detailcara.module';
+import { TestimoniModule } from './app/testimoni/testimoni.module';
 
 @Module({
-  imports: [TypeOrmModule.forRoot(typeOrmConfig), AkunModule, CaraModule, BeritaModule, DetailcaraModule],
+  imports: [TypeOrmModule.forRoot(typeOrmConfig), AkunModule, CaraModule, BeritaModule, DetailcaraModule, TestimoniModule],
   controllers: [AppController],
   providers: [AppService],
 })

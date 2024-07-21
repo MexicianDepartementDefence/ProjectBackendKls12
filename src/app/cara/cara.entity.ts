@@ -12,11 +12,4 @@ export class cara extends BaseEntity {
 
     @OneToMany(() => detail_tips, (v) => v.cara, {onDelete: "CASCADE", cascade: ["insert", "update"]})
     detail : detail_tips[];
-
-    @ManyToOne(() => Akun)
-    @JoinColumn({name: "dibuat_oleh"})
-    dibuat_oleh: Akun;
-    @ManyToOne(() => Akun)
-    @JoinColumn({name: "diperbarui_oleh"})
-    diperbarui_oleh: Akun;
 }
