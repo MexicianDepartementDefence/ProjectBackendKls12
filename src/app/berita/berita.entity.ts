@@ -13,4 +13,7 @@ export class Berita extends BaseEntity {
 
     @Column({nullable: false})
     isi_berita: string;
+
+    @Column({nullable: false})
+    tanggal_rilis: string;
 }
