@@ -1,6 +1,6 @@
 import { Type } from "class-transformer";
 import { IsArray, IsInt, IsObject, IsOptional, IsString, ValidateNested } from "class-validator";
-import { DtoDetail } from "../detailcara/detailcara.dto";
+
 import { OmitType } from "@nestjs/mapped-types";
 
 export class caraDto {
@@ -8,12 +8,10 @@ export class caraDto {
     id: number;
 
     @IsString()
-    title: string;
+    gambar: string;
 
-    @IsArray()
-    @ValidateNested({each: true})
-    @Type(() => DtoDetail)
-    detail : DtoDetail[]
+    @IsString()
+    tips: string;
 }
 
 export class TambahCara extends OmitType (caraDto, ["id"]) {}

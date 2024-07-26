@@ -5,12 +5,12 @@ export class testimoniDto {
     @IsInt()
     id: number;
 
-    @IsNumber()
-    nama_akun :  number
+    @IsString()
+    nama: string;
 
     @IsString()
-    isi_testimoni : string;
+    testimoni : string;
 }
 
 
-export class TambahTestimoni extends PickType (testimoniDto, ["nama_akun", "isi_testimoni"]) {}
+export class TambahTestimoni extends PickType (testimoniDto, ["nama", "testimoni"]) {}

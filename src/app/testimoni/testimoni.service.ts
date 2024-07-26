@@ -17,10 +17,7 @@ export class TestimoniService extends BaseResponse {
         try {
 
             const tambah = await this.testimoniRepo.save({
-                ...payload,
-                nama_akun: {
-                    id: payload.nama_akun
-                }
+                ...payload
             })
 
 

@@ -11,5 +11,5 @@ export class Testimoni extends BaseResponse {
     nama: string;
 
     @Column({nullable : false})
-    isi_testimoni: string;
+    testimoni: string;
 }
