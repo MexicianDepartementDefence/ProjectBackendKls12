@@ -23,9 +23,12 @@ export class BeritaService extends BaseResponse {
     }
 
     async List () {
-        const BangunQuery = await this.repoBerita.createQueryBuilder("berita");
+        const result =  await this.repoBerita.find();
 
-        const result = await BangunQuery.getMany();
+        if (!result) {
+            throw new HttpException("Gagal Menampilkan Berita", HttpStatus.UNPROCESSABLE_ENTITY)
+        }
+
         return this.sukses("Berhasil Menampilkan Berita", result)
     }
 }

@@ -25,21 +25,15 @@ export class CaraService extends BaseResponse {
     }
 
     async list () {
-        const bangunQuery = await this.caraServis.createQueryBuilder('cara');
+        const find = await this.caraServis.find()
 
-        bangunQuery
-        .leftJoin('cara.detail', 'detail')  // Join the detail table
-        .leftJoin('cara.dibuat_oleh', 'dibuat_oleh')
-        .leftJoin('cara.diperbarui_oleh', 'diperbarui_oleh')  // Join the dibuat_oleh table
-        .select([
-            "cara.title",
-            "detail.tips",
-            "dibuat_oleh.nama_lengkap",
-            'diperbarui_oleh.nama_lengkap'
-        ]);
+        if (!find) {
+            throw new HttpException("Gagal Menampilkan Tips Pembayaran", HttpStatus.UNPROCESSABLE_ENTITY)
+        }
+       
+        return this.sukses("Berhasil Menampilkan Cara", find);
 
-        const hasil = await bangunQuery.getMany()
-        return this.sukses("Berhasil Menampilkan Cara", hasil)
+        
     }
 
     async update (id: number, payload: UpdateCara) : Promise<ResponseSuccess> {

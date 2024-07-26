@@ -28,11 +28,11 @@ export class TestimoniService extends BaseResponse {
     }
 
     async List () {
-        const BangunQuery = await this.testimoniRepo.createQueryBuilder("testimoni")
+       const hasil = await this.testimoniRepo.find();
 
-        BangunQuery.leftJoin(`testimoni.nama_akun`, 'nama_akun').select(["nama_akun.nama_lengkap", "nama_akun.email", "testimoni.isi_testimoni"])
-
-        const hasil = await BangunQuery.getMany()
+       if (!hasil) {
+throw new HttpException("Gagal Menampilkan Testimoni", HttpStatus.UNPROCESSABLE_ENTITY)
+       }
         return this.sukses("OK", hasil)
     }
 }
