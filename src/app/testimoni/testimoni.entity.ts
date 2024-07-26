@@ -7,9 +7,8 @@ export class Testimoni extends BaseResponse {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @ManyToOne(() => Akun)
-    @JoinColumn({name: "nama_akun"})
-    nama_akun : Akun
+    @Column({nullable: false})
+    nama: string;
 
     @Column({nullable : false})
     isi_testimoni: string;
